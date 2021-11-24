@@ -4,7 +4,11 @@ import { Divider, Flex, Text } from "@chakra-ui/layout";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillDelete } from "react-icons/ai";
-import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
+import {
+  addToCart,
+  cartEmpty,
+  removeFromCart,
+} from "../../redux/actions/cartActions";
 import {
   Table,
   Thead,
@@ -13,11 +17,14 @@ import {
   Th,
   Td,
   TableCaption,
+  Link,
+  useDisclosure,
 } from "@chakra-ui/react";
+import CheckoutModal from "../../components/CheckoutModal";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log({ cartItems });
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const dispatch = useDispatch();
 
@@ -47,11 +54,20 @@ const Cart = () => {
     dispatch(addToCart(item.productId, item.product, item.price, item.qty + 1));
   };
 
+  const cartClearHandler = () => {
+    dispatch(cartEmpty());
+  };
+
+  // Lazy Loading
+
   return (
     <Flex mt="110px" mb="40px" mx="100px" direction="row" gridGap="70px">
       <Table variant="simple">
         <TableCaption>
           Thanks for shopping with us. Here is your cart!
+          <Text color="blue.500" cursor="pointer" onClick={cartClearHandler}>
+            Clear Your Cart
+          </Text>
         </TableCaption>
         <Thead>
           <Tr>
@@ -62,6 +78,14 @@ const Cart = () => {
             <Th>Actions</Th>
           </Tr>
         </Thead>
+        {cartItems.length === 0 && (
+          <Flex fontWeight="600" fontSize="18px" mt="50px" ml="10px">
+            Your Cart is empty!{" "}
+            <Link ml="3px" color="blue.500" href="/">
+              Go Shopping
+            </Link>
+          </Flex>
+        )}
         <Tbody>
           {cartItems.map((item, i) => (
             <Tr>
@@ -127,7 +151,14 @@ const Cart = () => {
             </Text>
           </Flex>
         </Flex>
-        <Button colorScheme="teal">Checkout Now</Button>
+        <Button
+          disabled={cartItems.length <= 0}
+          colorScheme="teal"
+          onClick={onOpen}
+        >
+          Checkout Now
+        </Button>
+        <CheckoutModal onClose={onClose} isOpen={isOpen} />
       </Flex>
     </Flex>
   );

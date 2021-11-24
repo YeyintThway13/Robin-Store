@@ -11,11 +11,14 @@ import {
 import { AiFillHeart } from "react-icons/ai";
 import { addToCart } from "../../redux/actions/cartActions";
 import ProductCard from "../../components/ProductCard";
+import { useToast } from "@chakra-ui/toast";
+import Loading from "../../components/Loading/Loading";
 
 const DetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const toast = useToast();
 
   const { loading, product, error } = useSelector((state) => state.product);
   const { products } = useSelector((state) => state.relatedProducts);
@@ -32,13 +35,23 @@ const DetailPage = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart(product.id, product, product.price, 1));
+    toast({
+      title: "Done add to cart",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
+  };
+
+  const buyNowHandler = () => {
+    dispatch(addToCart(product.id, product, product.price, 1));
     history.push("/cart");
   };
 
   return (
     <Flex mt="110px" mb="40px" mx="120px">
       {loading ? (
-        <h2>Loading ...</h2>
+        <Loading />
       ) : (
         <Flex direction="column" width="100%" gridGap="30px">
           {/* Product Details */}
@@ -65,7 +78,11 @@ const DetailPage = () => {
                 <Button colorScheme="teal" onClick={addToCartHandler}>
                   Add To Cart
                 </Button>
-                <Button colorScheme="teal" variant="outline">
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                  onClick={buyNowHandler}
+                >
                   Buy Now
                 </Button>
               </Flex>
@@ -77,12 +94,7 @@ const DetailPage = () => {
           <Text fontSize="20px" fontWeight="700">
             Related Products
           </Text>
-          <Flex
-            flexWrap="wrap"
-            justify="center"
-            gridGap="20px"
-            mb="40px"
-          >
+          <Flex flexWrap="wrap" justify="center" gridGap="20px" mb="40px">
             {products.map((product) => (
               <ProductCard
                 key={product.id}

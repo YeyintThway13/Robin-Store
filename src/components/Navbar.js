@@ -25,12 +25,14 @@ const Navbar = () => {
       <Flex gridGap="25px">
         <Text cursor="pointer">Home</Text>
         <Text cursor="pointer">Category</Text>
-        <Flex align="center" cursor="pointer">
-          <BsMinecartLoaded style={{ fontSize: "22px" }} />
-          <Tag ml="5px" size="sm" variant="solid" colorScheme="teal">
-            {cartItems?.length}
-          </Tag>
-        </Flex>
+        <Link to="/cart">
+          <Flex align="center" cursor="pointer">
+            <BsMinecartLoaded style={{ fontSize: "22px" }} />
+            <Tag ml="5px" size="sm" variant="solid" colorScheme="teal">
+              {cartItems?.length}
+            </Tag>
+          </Flex>
+        </Link>
       </Flex>
     </Flex>
   );

@@ -35,6 +35,7 @@ const Homepage = () => {
           image={product.image}
           title={product.title}
           price={product.price}
+          product={product}
         />
       ))}
     </Flex>
