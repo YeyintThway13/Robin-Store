@@ -4,7 +4,7 @@ import "./loading.css";
 
 const Loading = () => {
   return (
-    <Flex height="70vh" width="100vw" align="center" justify="center">
+    <Flex height="71vh" width="100vw" align="center" justify="center">
       <svg
         class="pl"
         viewBox="0 0 200 200"

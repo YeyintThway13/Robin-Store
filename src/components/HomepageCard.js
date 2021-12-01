@@ -12,7 +12,7 @@ import { useToast } from "@chakra-ui/toast";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ id, image, title, price, product }) => {
+function HomepageCard({ id, image, title, price, product }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const toast = useToast();
@@ -26,11 +26,6 @@ const ProductCard = ({ id, image, title, price, product }) => {
       isClosable: true,
     });
   };
-
-  // const goDetailsHandler = () => {
-  //   history.push(`/product/${id}`);
-  // };
-
   return (
     <Box
       display="flex"
@@ -38,7 +33,7 @@ const ProductCard = ({ id, image, title, price, product }) => {
       justifyContent="space-between"
       width="280px"
       p="25px"
-      border="3px solid #111"
+      boxShadow="2px 1px 19px -2px rgba(0,0,0,0.56)"
       borderRadius="20px"
       gridGap="10px"
     >
@@ -48,12 +43,9 @@ const ProductCard = ({ id, image, title, price, product }) => {
 
       <Text fontWeight="500">{title}</Text>
       <Flex direction="column">
-        <Text>$ - {price}</Text>
-        <Box display="flex" mt="2" alignItems="center">
-          {[0, 1, 2, 3, 4].map((_, i) => (
-            <AiFillStar key={i} style={{ color: "gold" }} />
-          ))}
-        </Box>
+        <Text fontWeight="900" color="green">
+          $ - {price}
+        </Text>
       </Flex>
       <Flex gridGap="20px">
         <Button
@@ -72,6 +64,6 @@ const ProductCard = ({ id, image, title, price, product }) => {
       </Flex>
     </Box>
   );
-};
+}
 
-export default ProductCard;
+export default HomepageCard;

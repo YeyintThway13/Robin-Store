@@ -24,14 +24,14 @@ const DetailPage = () => {
   const { products } = useSelector((state) => state.relatedProducts);
 
   useEffect(() => {
-    if (!product.category) {
-      dispatch(getSingleProduct(id));
-    }
-
     if (product.category) {
       dispatch(getRelatedProducts(product.category));
     }
   }, [product.category]);
+
+  useEffect(() => {
+    dispatch(getSingleProduct(id));
+  }, []);
 
   const addToCartHandler = () => {
     dispatch(addToCart(product.id, product, product.price, 1));

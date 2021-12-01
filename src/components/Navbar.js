@@ -23,8 +23,12 @@ const Navbar = () => {
         <Link to="/">Robin Store</Link>
       </Text>
       <Flex gridGap="25px">
-        <Text cursor="pointer">Home</Text>
-        <Text cursor="pointer">Category</Text>
+        <Link to="/">
+          <Text cursor="pointer">Home</Text>
+        </Link>
+        <Link to="/products">
+          <Text cursor="pointer">Products</Text>
+        </Link>
         <Link to="/cart">
           <Flex align="center" cursor="pointer">
             <BsMinecartLoaded style={{ fontSize: "22px" }} />

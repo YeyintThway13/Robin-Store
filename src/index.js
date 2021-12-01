@@ -5,13 +5,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import "./index.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
-  </Provider>,
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </Provider>
+  </QueryClientProvider>,
 
   document.getElementById("root")
 );
