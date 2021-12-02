@@ -1,10 +1,7 @@
 import { Button } from "@chakra-ui/button";
-import { Image } from "@chakra-ui/image";
 import { Flex, Box, Text } from "@chakra-ui/layout";
 import React from "react";
-import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import { addToCart } from "../redux/actions/cartActions";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillCartFill } from "react-icons/bs";
@@ -14,7 +11,6 @@ import { Link } from "react-router-dom";
 
 function HomepageCard({ id, image, title, price, product }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const toast = useToast();
 
   const addToCartHandler = () => {

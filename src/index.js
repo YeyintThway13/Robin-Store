@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 

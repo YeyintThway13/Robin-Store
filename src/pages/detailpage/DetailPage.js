@@ -20,17 +20,19 @@ const DetailPage = () => {
   const history = useHistory();
   const toast = useToast();
 
-  const { loading, product, error } = useSelector((state) => state.product);
+  const { loading, product } = useSelector((state) => state.product);
   const { products } = useSelector((state) => state.relatedProducts);
 
   useEffect(() => {
     if (product.category) {
       dispatch(getRelatedProducts(product.category));
     }
+    // eslint-disable-next-line
   }, [product.category]);
 
   useEffect(() => {
     dispatch(getSingleProduct(id));
+    // eslint-disable-next-line
   }, []);
 
   const addToCartHandler = () => {

@@ -165,20 +165,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-{
-  /*   <Flex key={i} align="center" justify="space-between">
-          <Image src={item.product.image} h="100px" />
-          <Text>{item.product.title}</Text>
-          <Flex align="center" gridGap="10px">
-            <Button onClick={() => decreseQty(item)}>-</Button>
-            <Text>{item.qty}</Text>
-            <Button onClick={() => increseQty(item)}>+</Button>
-          </Flex>
-          <Text>Total - {item.price * item.qty}</Text>
-          <AiFillDelete
-            style={{ fontSize: "30px", cursor: "pointer" }}
-            onClick={() => removeFromCartHandler(item.productId)}
-          />
-        </Flex>*/
-}

@@ -1,15 +1,12 @@
 import { Flex } from "@chakra-ui/layout";
-import React, { useEffect } from "react";
+import React from "react";
 import { useQuery } from "react-query";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import { getAllProductsRequest } from "../../apis/getAllProducts";
 import MySkeleton from "../../components/MySkeleton";
 import ProductCard from "../../components/ProductCard";
-import { getAllProducts } from "../../redux/actions/productActions";
 
 const ProductsPage = () => {
-  const { isLoading, error, data } = useQuery(
+  const { isLoading, data } = useQuery(
     "getAllProducts",
     getAllProductsRequest,
     { staleTime: 600000 }
