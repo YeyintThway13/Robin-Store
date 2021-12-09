@@ -1,9 +1,9 @@
 import { Flex } from "@chakra-ui/layout";
 import React from "react";
 import { useQuery } from "react-query";
-import { getAllProductsRequest } from "../../apis/getAllProducts";
-import MySkeleton from "../../components/MySkeleton";
-import ProductCard from "../../components/ProductCard";
+import { getAllProductsRequest } from "../../apis/getAllProducts.js";
+import MySkeleton from "../../components/MySkeleton.js";
+import ProductCard from "../../components/ProductCard.js";
 
 const ProductsPage = () => {
   const { isLoading, data } = useQuery(

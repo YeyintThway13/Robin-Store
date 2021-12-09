@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import Cart from "./pages/cart/Cart";
-import DetailPage from "./pages/detailpage/DetailPage";
-import Homepage from "./pages/homepage/HomePage";
-import ProductsPage from "./pages/productsPage/ProductsPage";
+import Footer from "./components/Footer.js";
+import Navbar from "./components/Navbar.js";
+import Cart from "./pages/cart/Cart.js";
+import DetailPage from "./pages/detailpage/DetailPage.js";
+import Homepage from "./pages/homepage/HomePage.js";
+import ProductsPage from "./pages/productsPage/ProductsPage.js";
 
 function App() {
   return (

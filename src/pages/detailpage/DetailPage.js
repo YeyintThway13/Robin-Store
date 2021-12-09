@@ -7,12 +7,12 @@ import { useHistory, useParams } from "react-router";
 import {
   getRelatedProducts,
   getSingleProduct,
-} from "../../redux/actions/productActions";
+} from "../../redux/actions/productActions.js";
 import { AiFillHeart } from "react-icons/ai";
-import { addToCart } from "../../redux/actions/cartActions";
-import ProductCard from "../../components/ProductCard";
+import { addToCart } from "../../redux/actions/cartActions.js";
+import ProductCard from "../../components/ProductCard.js";
 import { useToast } from "@chakra-ui/toast";
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../components/Loading/Loading.js";
 
 const DetailPage = () => {
   const { id } = useParams();

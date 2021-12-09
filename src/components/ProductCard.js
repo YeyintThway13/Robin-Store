@@ -3,7 +3,7 @@ import { Flex, Box, Text } from "@chakra-ui/layout";
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
+import { addToCart } from "../redux/actions/cartActions.js";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillCartFill } from "react-icons/bs";
 import { useToast } from "@chakra-ui/toast";

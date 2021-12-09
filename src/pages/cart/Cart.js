@@ -8,7 +8,7 @@ import {
   addToCart,
   cartEmpty,
   removeFromCart,
-} from "../../redux/actions/cartActions";
+} from "../../redux/actions/cartActions.js";
 import {
   Table,
   Thead,
@@ -20,7 +20,7 @@ import {
   Link,
   useDisclosure,
 } from "@chakra-ui/react";
-import CheckoutModal from "../../components/CheckoutModal";
+import CheckoutModal from "../../components/CheckoutModal.js";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -90,25 +90,25 @@ const Cart = () => {
           {cartItems.map((item, i) => (
             <Tr>
               <Td>
-                <Image src={item.product.image} h="100px" />
+                <Image src={item.product?.image} h="100px" />
               </Td>
               <Td>
-                <Text>{item.product.title}</Text>
+                <Text>{item.product?.title}</Text>
               </Td>
               <Td>
                 <Flex align="center" gridGap="10px">
                   <Button onClick={() => decreseQty(item)}>-</Button>
-                  <Text>{item.qty}</Text>
+                  <Text>{item?.qty}</Text>
                   <Button onClick={() => increseQty(item)}>+</Button>
                 </Flex>
               </Td>
               <Td>
-                <Text>$ {(item.price * item.qty).toFixed(2)}</Text>
+                <Text>$ {(item?.price * item?.qty).toFixed(2)}</Text>
               </Td>
               <Td>
                 <AiFillDelete
                   style={{ fontSize: "30px", cursor: "pointer" }}
-                  onClick={() => removeFromCartHandler(item.productId)}
+                  onClick={() => removeFromCartHandler(item?.productId)}
                 />
               </Td>
             </Tr>

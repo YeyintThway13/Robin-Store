@@ -11,7 +11,7 @@ import {
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { cartEmpty } from "../redux/actions/cartActions";
+import { cartEmpty } from "../redux/actions/cartActions.js";
 
 const CheckoutModal = ({ onClose, isOpen }) => {
   const history = useHistory();

@@ -8,10 +8,10 @@ import men from "./men.jpg";
 import women from "./women.jfif";
 import electronic from "./electronic.jfif";
 import { useQuery } from "react-query";
-import { peopleChoisesReq } from "../../apis/peopleChoisesProducts";
-import HomepageCard from "../../components/HomepageCard";
-import { jeweleryReq } from "../../apis/jeweleryReq";
-import Loading from "../../components/Loading/Loading";
+import { peopleChoisesReq } from "../../apis/peopleChoisesProducts.js";
+import HomepageCard from "../../components/HomepageCard.js";
+import { jeweleryReq } from "../../apis/jeweleryReq.js";
+import Loading from "../../components/Loading/Loading.js";
 import {
   FormControl,
   FormLabel,
@@ -19,7 +19,7 @@ import {
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/input";
 import { Textarea } from "@chakra-ui/textarea";
 import { useHistory } from "react-router";
-import ScrollToTop from "../../components/ScrollToTop";
+import ScrollToTop from "../../components/ScrollToTop.js";
 import * as yup from "yup";
 import { Form, FormikProvider, useFormik } from "formik";
 import emailjs from "emailjs-com";
