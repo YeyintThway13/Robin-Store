@@ -17,6 +17,8 @@ const CheckoutModal = ({ onClose, isOpen }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+
   const goShoppingHandler = () => {
     onClose();
     dispatch(cartEmpty());
